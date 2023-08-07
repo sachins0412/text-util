@@ -4,6 +4,9 @@ export default function Form(props) {
   const handleUpClick = () => {
     setText(text.toUpperCase());
   };
+  const handleLowClick = () => {
+    setText(text.toLowerCase());
+  };
   const handleChange = (event) => {
     setText(event.target.value);
   };
@@ -24,6 +27,9 @@ export default function Form(props) {
       </div>
       <button className="btn btn-primary" onClick={handleUpClick}>
         Convert to UpperCase
+      </button>
+      <button className="btn btn-primary ms-3" onClick={handleLowClick}>
+        Convert to LowerCase
       </button>
     </div>
   );
