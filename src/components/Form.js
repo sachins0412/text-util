@@ -17,7 +17,9 @@ export default function Form(props) {
   return (
     <>
       <div className="container my-3">
-        <div className="mb-3">
+        <div
+          className={`mb-3 text-${props.mode === "dark" ? "light" : "dark"}`}
+        >
           <label
             htmlFor="exampleFormControlTextarea1"
             className="form-label fw-bold"
@@ -30,6 +32,10 @@ export default function Form(props) {
             rows="8"
             value={text}
             onChange={handleChange}
+            style={{
+              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              color: props.mode === "dark" ? "white" : "black",
+            }}
           ></textarea>
         </div>
         <button className="btn btn-primary" onClick={handleUpClick}>
@@ -42,7 +48,9 @@ export default function Form(props) {
           Reset
         </button>
       </div>
-      <div className="container">
+      <div
+        className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
+      >
         <label
           htmlFor="exampleFormControlTextarea2"
           className="form-label fw-bold"
