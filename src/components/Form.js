@@ -3,12 +3,15 @@ import React, { useState } from "react";
 export default function Form(props) {
   const handleUpClick = () => {
     setText(text.toUpperCase());
+    props.showAlert("success", "Converted to Uppercase");
   };
   const handleLowClick = () => {
     setText(text.toLowerCase());
+    props.showAlert("success", "Converted to Lowercase");
   };
   const handleClearClick = () => {
     setText("");
+    props.showAlert("success", "Test cleared");
   };
   const handleChange = (event) => {
     setText(event.target.value);
