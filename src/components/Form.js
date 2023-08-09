@@ -61,7 +61,8 @@ export default function Form(props) {
           Text Summary
         </label>
         <p>
-          {text.trim().split(" ").length} words & {text.length} characters{" "}
+          {text === "" ? 0 : text.trim().split(/\s+/).length} words &{" "}
+          {text.length} characters{" "}
         </p>
       </div>
     </>

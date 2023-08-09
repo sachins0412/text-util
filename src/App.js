@@ -4,6 +4,7 @@ import About from "./components/About";
 import Form from "./components/Form";
 import NavBar from "./components/NavBar";
 import Alert from "./components/Alert";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light");
   const toggleMode = () => {
@@ -26,7 +27,7 @@ function App() {
     }, 1500);
   };
   return (
-    <>
+    <BrowserRouter>
       <NavBar
         title="Text Utils"
         about="About Us"
@@ -34,9 +35,17 @@ function App() {
         toggleMode={toggleMode}
       />
       <Alert alert={alert} />
-      <Form title="Enter your text" mode={mode} showAlert={showAlert} />
-      {/* <About /> */}
-    </>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <Form title="Enter your text" mode={mode} showAlert={showAlert} />
+          }
+        ></Route>
+        <Route exact path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
